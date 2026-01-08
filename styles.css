@@ -78,7 +78,7 @@ body {
   line-height: 1.6;
   color: var(--gray-800);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
+  background-attachment: fixed;
   padding: var(--space-md);
 }
 
@@ -784,8 +784,6 @@ html {
 @media (max-width: 768px) {
   body {
     padding: var(--space-sm);
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
   }
 
   .container {
