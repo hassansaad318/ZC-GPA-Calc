@@ -774,23 +774,51 @@ body {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
+
+/* Ensure proper sizing on all devices */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 @media (max-width: 768px) {
   body {
     padding: var(--space-sm);
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    gap: var(--space-md);
   }
 
   .card {
     padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  .header {
+    padding: var(--space-lg) var(--space-md);
   }
 
   .header h1 {
     font-size: var(--font-size-2xl);
   }
 
+  .header .subtitle {
+    font-size: var(--font-size-base);
+  }
+
   .section-header {
     flex-direction: column;
     gap: var(--space-md);
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .section-header .btn {
+    width: 100%;
   }
 
   .course-inputs {
@@ -810,12 +838,87 @@ body {
     width: 100%;
   }
 
+  .actions .btn-large {
+    width: 100%;
+  }
+
   .gpa-value {
     font-size: var(--font-size-3xl);
+  }
+
+  .summary-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    padding: var(--space-sm);
+  }
+
+  .stat-value {
+    font-size: var(--font-size-xl);
+  }
+
+  .breakdown-content {
+    padding: var(--space-md);
+    font-size: var(--font-size-xs);
+  }
+
+  .breakdown-line {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  /* Make inputs touch-friendly */
+  .input-group input,
+  .input-group select {
+    padding: var(--space-md);
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    min-height: 48px;
+  }
+
+  .grade-toggle button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+    min-height: 44px;
+  }
+
+  .checkbox-label {
+    padding: var(--space-sm) 0;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Details table - make scrollable */
+  .details-table {
+    font-size: var(--font-size-xs);
+  }
+
+  .details-table th,
+  .details-table td {
+    padding: var(--space-xs) var(--space-sm);
   }
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: var(--space-xs);
+  }
+
+  .container {
+    gap: var(--space-sm);
+  }
+
+  .card {
+    padding: var(--space-sm);
+  }
+
+  .header h1 {
+    font-size: var(--font-size-xl);
+  }
+
   .mode-toggle {
     gap: var(--space-sm);
   }
@@ -824,9 +927,30 @@ body {
     padding: var(--space-sm) var(--space-md);
   }
 
+  .course-row {
+    padding: var(--space-md);
+  }
+
   .course-options {
     flex-direction: column;
     gap: var(--space-sm);
+  }
+
+  .summary-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .gpa-display {
+    padding: var(--space-lg);
+  }
+
+  .gpa-value {
+    font-size: var(--font-size-2xl);
+  }
+
+  .gpa-label {
+    font-size: var(--font-size-base);
   }
 }
 
